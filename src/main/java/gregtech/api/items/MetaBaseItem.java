@@ -12,6 +12,8 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -131,6 +133,13 @@ public abstract class MetaBaseItem extends GTGenericItem
 
     public boolean onMiddleClick(ItemStack aStack, EntityPlayer aPlayer) {
         return forEachBehavior(aStack, behavior -> behavior.onMiddleClick(this, aStack, aPlayer));
+    }
+
+    public boolean onBlockPlacedWhileToolInOffhand(ItemStack toolItemStack, ItemStack placedBlockStack,
+        EntityPlayer player) {
+        return forEachBehavior(
+            toolItemStack,
+            behavior -> behavior.onBlockPlacedWhileToolInOffhand(this, toolItemStack, placedBlockStack, player));
     }
 
     @Override

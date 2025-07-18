@@ -1,4 +1,4 @@
-package gregtech.api.util;
+package gregtech.api.util.colors;
 
 import java.util.Optional;
 import java.util.Set;

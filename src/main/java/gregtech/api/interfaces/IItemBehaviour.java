@@ -28,6 +28,23 @@ public interface IItemBehaviour<E extends Item> {
     }
 
     /**
+     * Allows the tool to mutate a block being placed if the tool is in the user's offhand.
+     * 
+     * @param item             The item associated with the tool
+     * @param toolItemStack    The tool being used to
+     * @param placedBlockStack A duplicate ItemStack containing the block which will be placed. MUTATE THIS VARIABLE TO
+     *                         AFFECT YOUR CHANGE. You do not need to adjust the item quantity; doing so will have no
+     *                         effect.
+     * @param aPlayer          The player placing the block.
+     * @return True if you did something. This has no permissive effect; it just lets a loop return early and saves some
+     *         processing time.
+     */
+    default boolean onBlockPlacedWhileToolInOffhand(E item, ItemStack toolItemStack, ItemStack placedBlockStack,
+        EntityPlayer aPlayer) {
+        return false;
+    }
+
+    /**
      * Suppresses standard block activation for a {@link gregtech.common.blocks.BlockMachines GT machine block}. Put
      * your item's right click activation in
      * {@link #onItemUse(Item, ItemStack, EntityPlayer, World, int, int, int, int, float, float, float) onItemUse}

@@ -1,6 +1,7 @@
 package gregtech.common.items.behaviors;
 
 import java.util.List;
+import java.util.Objects;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +17,7 @@ import gregtech.api.enums.Dyes;
 import gregtech.api.enums.SoundResource;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.MetaBaseItem;
-import gregtech.api.util.ColoredBlockContainer;
+import gregtech.api.util.colors.ColoredBlockContainer;
 import gregtech.api.util.GTLanguageManager;
 import gregtech.api.util.GTUtility;
 import gregtech.common.config.Other;
@@ -156,6 +157,24 @@ public class BehaviourSprayColor extends BehaviourNone {
         final ForgeDirection side) {
         return ColoredBlockContainer.getInstance(player, tileEntity, side)
             .isValid();
+    }
+
+    @Override
+    public boolean onBlockPlacedWhileToolInOffhand(final MetaBaseItem item, final ItemStack toolItemStack, final ItemStack placedBlockStack, final EntityPlayer aPlayer) {
+        // TODO: Remove requireNonNullElse, it's not in Jabel for w/e reason
+//        final NBTTagCompound toolNBT = Objects.requireNonNullElse(toolItemStack.getTagCompound(), new NBTTagCompound());
+//        final long uses = getUses(toolItemStack, toolNBT);
+
+//        if (uses > 0) {
+//            final ColoredBlockContainer container = ColoredBlockContainer.getInstance();
+//            if (container.isValid()) {
+//                container.setColor(mColor);
+//                setRemainingUses(toolItemStack, toolNBT, uses - 1);
+//                return true;
+//            }
+//        }
+
+        return false;
     }
 
     protected long getUses(ItemStack aStack, NBTTagCompound tNBT) {

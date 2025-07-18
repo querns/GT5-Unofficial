@@ -28,7 +28,7 @@ import gregtech.api.enums.GTValues;
 import gregtech.api.enums.ItemList;
 import gregtech.api.items.MetaBaseItem;
 import gregtech.api.net.GTPacketInfiniteSpraycan;
-import gregtech.api.util.ColoredBlockContainer;
+import gregtech.api.util.colors.ColoredBlockContainer;
 import gregtech.api.util.GTUtility;
 import gregtech.common.config.Other;
 import gregtech.common.gui.modularui.uifactory.SelectItemUIFactory;

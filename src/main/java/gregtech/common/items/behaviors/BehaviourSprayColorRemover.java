@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import gregtech.api.util.ColoredBlockContainer;
+import gregtech.api.util.colors.ColoredBlockContainer;
 import gregtech.api.util.GTLanguageManager;
 
 public class BehaviourSprayColorRemover extends BehaviourSprayColor {

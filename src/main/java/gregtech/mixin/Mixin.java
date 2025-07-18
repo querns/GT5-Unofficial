@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;
 
+import gregtech.api.enums.Mods;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -177,7 +178,16 @@ public enum Mixin {
             .setPhase(Phase.LATE)
             .setSide(Side.BOTH)
             .setApplyIf(() -> PollutionConfig.pollution && PollutionConfig.rocketsPollute)
-            .addTargetedMod(TargetedMod.GALACTICRAFT_CORE));
+            .addTargetedMod(TargetedMod.GALACTICRAFT_CORE)),
+//    GT_TOOL_OFFHAND_PLACE_BLOCK_MODIFY(
+//        new Builder("Allow offhand wielded tools to modify blocks being placed")
+//            .addMixinClasses("minecraft.ItemBlockMixin")
+//            .setSide(Side.SERVER)
+//            .setApplyIf(Mods.Backhand::isModLoaded)
+//            .addTargetedMod(VANILLA)
+//            .setPhase(Phase.LATE)
+//    )
+    ;
 
     public static final Logger LOGGER = LogManager.getLogger("GregTech-Mixin");
 
